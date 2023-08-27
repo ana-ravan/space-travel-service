@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Enter your address manually
+      </h1>
+
+      <form class="form" action="/path/of/next/page" method="post">
+
+        <div class="govuk-form-group govuk-form-group--error">
+          <label class="govuk-label" for="address-postcode">
+            Postcode
+          </label>
+          <p id="address-postcode-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Enter a valid UK postcode
+          </p>
+          <input class="govuk-input govuk-input--width-10 govuk-input--error" id="address-postcode" name="address-postcode" type="text" value="Not a postcode" aria-describedby="address-postcode-error" autocomplete="postal-code">
+        </div>
+
+        <p class="govuk-body">
+          <a href="enter-address-manually.html" class="govuk-link">Enter your address manually </a>.
+        </p>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
