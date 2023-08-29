@@ -20,18 +20,15 @@
         Heading or question goes here
       </h1> -->
 
-      <form class="form" action="/path/of/next/page" method="post">
+      <form class="form" action="check-answer" method="post">
 
-        <div class="govuk-form-group govuk-form-group--error">
-          <fieldset class="govuk-fieldset" aria-describedby="where-do-you-live-error">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                Select address
+                Select your first line of address
               </h1>
             </legend>
-            <p id="where-do-you-live-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> You need to select your correct address from the list
-            </p>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
@@ -60,6 +57,7 @@
             </div>
           </fieldset>
         </div>
+
 
         {{ govukButton({
           text: "Continue"

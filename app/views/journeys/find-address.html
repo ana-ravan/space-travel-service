@@ -20,21 +20,19 @@
         Enter your address manually
       </h1>
 
-      <form class="form" action="/path/of/next/page" method="post">
+      <form class="form" action="select-address-details" method="post">
 
-        <div class="govuk-form-group govuk-form-group--error">
+        <div class="govuk-form-group">
           <label class="govuk-label" for="address-postcode">
             Postcode
           </label>
-          <p id="address-postcode-error" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span> Enter a valid UK postcode
-          </p>
-          <input class="govuk-input govuk-input--width-10 govuk-input--error" id="address-postcode" name="address-postcode" type="text" value="Not a postcode" aria-describedby="address-postcode-error" autocomplete="postal-code">
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text" autocomplete="postal-code">
         </div>
 
         <p class="govuk-body">
-          <a href="enter-address-manually.html" class="govuk-link">Enter your address manually </a>.
+          <a href="enter-address-manually.html" class="govuk-link">Enter your address manually </a>
         </p>
+
 
         {{ govukButton({
           text: "Continue"
