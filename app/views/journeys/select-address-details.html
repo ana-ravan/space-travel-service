@@ -16,40 +16,69 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      {% if error %}
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#">Select an option</a>
+            </li>
+            <!-- <li>
+                <a href="#"></a>
+              </li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if not error %}
+
+    {% endif %}
+
       <!-- <h1 class="govuk-heading-l">
         Heading or question goes here
       </h1> -->
 
-      <form class="form" action="check-answer" method="post">
+      <form class="form" method="post">
 
-        <div class="govuk-form-group">
+        <div class="govuk-form-group {% if (error) %} govuk-form-group--error {% endif %}">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
                 Select your first line of address
               </h1>
             </legend>
+            {% if (error) %}
+            <span id="passport-issued-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select an option
+            </span>
+            {% endif %}
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
+                <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="Flat 1 Warwick Court">
                 <label class="govuk-label govuk-radios__label" for="where-do-you-live">
                   Flat 1 Warwick Court
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+                <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="Flat 2 Warwick Court">
                 <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
                   Flat 2 Warwick Court
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="wales">
+                <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="Flat 3 Warwick Court">
                 <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
                   Flat 3 Warwick Court
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+                <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="Flat 4 Warwick Court">
                 <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
                   Flat 4 Warwick Court
                 </label>
