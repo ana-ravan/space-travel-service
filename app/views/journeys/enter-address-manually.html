@@ -20,7 +20,27 @@
         Heading or question goes here
       </h1> -->
 
-      <form class="form" action="check-answer" method="post">
+      {% if error %}
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#full-name-input">Complete required fields</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if not error %}
+      {% endif %}
+
+      <form class="form"  method="post">
 
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -28,10 +48,15 @@
               Enter your address manually
             </h1>
           </legend>
-          <div class="govuk-form-group">
+          <div class="govuk-form-group {% if (error) %} govuk-form-group--error {% endif %} ">
             <label class="govuk-label" for="address-line-1">
               Address line 1
             </label>
+            {% if error %}
+            <span id="passport-issued-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Enter your first line of address
+            </span>
+            {% endif %}
             <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1">
           </div>
           <div class="govuk-form-group">
@@ -40,10 +65,15 @@
             </label>
             <input class="govuk-input" id="address-line-2" name="address-line-2" type="text" autocomplete="address-line2">
           </div>
-          <div class="govuk-form-group">
+          <div class="govuk-form-group {% if (error) %} govuk-form-group--error {% endif %}">
             <label class="govuk-label" for="address-town">
               Town or city
             </label>
+            {% if error %}
+            <span id="passport-issued-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Enter your town or city
+            </span>
+            {% endif %}
             <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text" autocomplete="address-level2">
           </div>
           <div class="govuk-form-group">
@@ -52,10 +82,15 @@
             </label>
             <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="address-county" type="text">
           </div>
-          <div class="govuk-form-group">
+          <div class="govuk-form-group {% if (error) %} govuk-form-group--error {% endif %}">
             <label class="govuk-label" for="address-postcode">
               Postcode
             </label>
+            {% if error %}
+            <span id="passport-issued-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Enter your postcode
+            </span>
+            {% endif %}
             <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text" autocomplete="postal-code">
           </div>
         </fieldset>
